@@ -1,48 +1,43 @@
 #!/bin/bash
 
-# DEFINE COLORS
-BG="#20292d"
-FG="#c4c4b5"
+#DEFINE COLORS
+BG="#fbf1c7"
+FG="#3c3836"
 
-#BLK="#253034"
-BLK="#2c3539"
-RED="#a66959"
-GRN="#769070"
-YLW="#ac8d6e"
-BLU="#607a86"
-MAG="#8a757e"
-CYN="#60867f"
-WHT="#c4c4b5"
+BLK="#fdf4c1"
+RED="#cc241d"
+GRN="#98971a"
+YLW="#d79921"
+BLU="#458588"
+MAG="#b16286"
+CYN="#689d6a"
+WHT="#7c6f64"
 
-#BBLK="#35444b"
-BBLK="#343d41"
-BRED="#a66959"
-BGRN="#769070"
-BYLW="#ac8d6e"
-BBLU="#607a86"
-BMAG="#8a757e"
-BCYN="#60867f"
-BWHT="#c4c4b5"
+BBLK="#928374"
+BRED="#9d0006"
+BGRN="#79740e"
+BYLW="#b57614"
+BBLU="#076678"
+BMAG="#8f3f71"
+BCYN="#427b58"
+BWHT="#3c3836"
 
 # ROFI OPTIONS
-ACC="${YLW}"
+ACC="${RED}"
 
 # BAR OPTIONS
-#BAR_SCRIPT="polybar -r burs"
-BAR_SCRIPT="polybar -r burs"
+BAR_SCRIPT="infobar2"
 
 # VIM COLORSCHEME
-VIM_SCHEME='bleh'
+VIM_SCHEME='lightbox'
 
 # WALLPAPER OPTIONS
-#WALLPAPER_PATH="$HOME/Wallpapers/designr.png"
-#WALLPAPER_STYLE="tile"
-WALLPAPER_PATH="$HOME/Wallpapers/ashim-d-silva-628775-unsplash.jpg"
-WALLPAPER_STYLE="fill"
+WALLPAPER_PATH="$HOME/Wallpapers/foo.png"
+WALLPAPER_STYLE="cover"
 
 # 2BWM OPTIONS
-TWOBWM_FOCUS="${CYN}"
-TWOBWM_UNFOCUS="${BBLK}"
+TWOBWM_FOCUS="${BBLK}"
+TWOBWM_UNFOCUS="${BLK}"
 TWOBWM_FIXED="${RED}"
 TWOBWM_UNKILL="${CYN}"
 TWOBWM_FIXEDUNK="${MAG}"
@@ -55,6 +50,9 @@ BSPWM_FOCUSED="${CYN}"
 BSPWM_URGENT="${RED}"
 BSPWM_PRESEL="${GRN}"
 
-OB_THEME="designr"
+# LEMONBAR OPTIONS
+LMNBAR_DARK="${BBLK}"
+LMNBAR_DARKER="${BLK}"
 
-SQUASH_FONT="xft:Iosevka Term:pixelsize=15"
+OB_THEME="lightbox"
+SQUASH_FONT="xft:Iosevka:pixelsize=15"
