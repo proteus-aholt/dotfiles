@@ -1,5 +1,5 @@
 syntax enable
-colorscheme espresso
+colorscheme gruvbox
 set laststatus=2
 syntax enable
 set fillchars+=vert:\
@@ -8,7 +8,7 @@ set nowrap
 set number
 set relativenumber
 set noshowmode
-
+set termguicolors
 
 set statusline=
 set statusline+=%#PrimaryBlock#
