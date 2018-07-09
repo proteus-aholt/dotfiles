@@ -24,7 +24,6 @@ local tooltip = require("redflat.float.tooltip")
 local redutil = require("redflat.util")
 local svgbox = require("redflat.gauge.svgbox")
 
-
 -- Initialize tables and vars for module
 -----------------------------------------------------------------------------------------------------------------------
 local layoutbox = { mt = {} }

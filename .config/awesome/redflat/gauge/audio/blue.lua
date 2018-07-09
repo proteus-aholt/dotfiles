@@ -16,7 +16,7 @@ local color = require("gears.color")
 local redutil = require("redflat.util")
 local svgbox = require("redflat.gauge.svgbox")
 local reddash = require("redflat.gauge.graph.dash")
-
+local unpack = table.unpack
 
 -- Initialize tables for module
 -----------------------------------------------------------------------------------------------------------------------

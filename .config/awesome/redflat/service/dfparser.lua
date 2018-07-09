@@ -201,7 +201,7 @@ local function parse(file, style)
 	-- In case [Desktop Entry] was not found
 	if not desktop_entry then return nil end
 
-	-- Don't show program if NoDisplay attribute is false
+	-- Don't show program if NoDisplay attribute is true
 	if program.NoDisplay and string.lower(program.NoDisplay) == "true" then
 		program.show = false
 	end
@@ -313,15 +313,26 @@ function dfparser.menu(style)
 	-- Find all visible menu items
 	--------------------------------------------------------------------------------
 	local prog_list = {}
+	local logfile = io.open("/home/aholt/awesome-menu.log", "w")
 	for _, path in ipairs(style.desktop_file_dirs) do
 		local programs = parse_dir(path, style)
 
 		for _, prog in ipairs(programs) do
+			--logfile:write("----------\n")
+			--logfile:write("Name: " .. prog.Name .. "\n")
+			--if prog.cmdline == nil then
+			--	logfile:write("Cmdline: nil\n")
+		 	--else
+			--	logfile:write("Cmdline: " .. prog.cmdline .. "\n")
+			--end
+			--logfile:write("Show: " .. tostring(prog.show) .. "\n")
+			--logfile:write("----------\n")
 			if prog.show and prog.Name and prog.cmdline then
 				table.insert(prog_list, prog)
 			end
 		end
 	end
+	--logfile:close()
 
 	-- Sort menu items by category and create submenu
 	--------------------------------------------------------------------------------
@@ -340,6 +351,7 @@ function dfparser.menu(style)
 				end
 			end
 		end
+		logfile:write("Cat: " .. menu_category.name .. " Count: " .. tostring(#catmenu) .. "\n")
 		if #catmenu > 0 then table.insert(appmenu, { menu_category.name, catmenu, menu_category.icon }) end
 	end
 
@@ -354,7 +366,8 @@ function dfparser.menu(style)
 
 		table.insert(appmenu, { "Other", catmenu, dfparser.lookup_icon("applications-other", icon_args) })
 	end
-
+	logfile:write("Appmenu Count: " .. tostring(#appmenu) .. "\n")
+	logfile:close()
 	return appmenu
 end
 

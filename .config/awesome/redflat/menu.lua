@@ -33,6 +33,7 @@ local pairs = pairs
 local pcall = pcall
 local print = print
 local table = table
+local unpack = table.unpack
 local type = type
 local math = math
 
@@ -411,11 +412,13 @@ end
 -----------------------------------------------------------------------------------------------------------------------
 function menu:add(args)
 	if not args then return end
+	--local logfile = io.open("/home/aholt/awesome-redflat-menu.log", "a")
 
 	-- If widget instead of text label recieved
 	-- just add it to layer, don't try to create menu item
 	------------------------------------------------------------
 	if type(args[1]) ~= "string" and args.widget then
+		--logfile:write("Widget detected \n")
 		local element = {}
 		element.width, element.height = args.widget:fit(_fake_context, -1, -1)
 		self.add_size = self.add_size + element.height
@@ -430,7 +433,7 @@ function menu:add(args)
 				end
 			)
 		end
-
+		--logfile:close()
 		return
 	end
 
@@ -443,14 +446,15 @@ function menu:add(args)
 	------------------------------------------------------------
 	args.new = args.new or menu.entry
 	local success, item = pcall(args.new, self, args)
-
 	if not success then
-		print("Error while creating menu entry: " .. item)
+		--logfile:write("Error while creating menu entry: " .. item .. "\n")
+		--logfile:close()
 		return
 	end
 
 	if not item.widget then
-		print("Error while checking menu entry: no property widget found.")
+		--logfile:write("Error while checking menu entry: no property widget found.\n")
+		--logfile:close()
 		return
 	end
 
@@ -482,6 +486,7 @@ function menu:add(args)
 	-- Create submenu if needed
 	------------------------------------------------------------
 	if type(args[2]) == "table" then
+		--logfile:write("Submenu detected \n")
 		if not self.items[#self.items].child then
 			self.items[#self.items].child = menu.new(args[2], self)
 			self.items[#self.items].child.position = self.add_size
@@ -490,7 +495,7 @@ function menu:add(args)
 
 	------------------------------------------------------------
 	self.add_size = self.add_size + item.theme.height
-
+	--logfile:close()
 	return item
 end
 
@@ -619,7 +624,9 @@ function menu.new(args, parent)
 	for i, v in ipairs(args) do _menu:add(v) end
 
 	if args.items then
-		for i, v in ipairs(args.items) do _menu:add(v) end
+		for i, v in ipairs(args.items) do 
+			_menu:add(v)
+		end
 	end
 
 	_menu._keygrabber = function (...)

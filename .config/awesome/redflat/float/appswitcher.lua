@@ -13,8 +13,8 @@
 local setmetatable = setmetatable
 local type = type
 local math = math
-local unpack = unpack
 local table = table
+local unpack = table.unpack
 
 local awful = require("awful")
 local beautiful = require("beautiful")

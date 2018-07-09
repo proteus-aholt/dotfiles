@@ -18,6 +18,7 @@ local setmetatable = setmetatable
 local pairs = pairs
 local ipairs = ipairs
 local table = table
+local unpack = table.unpack
 local string = string
 local math = math
 local beautiful = require("beautiful")
@@ -183,21 +184,23 @@ local function tagmenu_update(c, menu, submenu_index, style)
 			end
 
 			for _, index in ipairs(submenu_index) do
-				local submenu = menu.items[index].child
-				if submenu.items[k].icon then
-					submenu.items[k].icon:set_image(style.layout_icon[l] or style.layout_icon.unknown)
-				end
-
-				-- set "checked" icon if tag active for given client
-				-- otherwise set empty icon
-				if c then
-					if submenu.items[k].right_icon then
-						submenu.items[k].right_icon:set_image(check_icon)
+				if menu.items and menu.items[index] then
+					local submenu = menu.items[index].child
+					if submenu.items[k].icon then
+						submenu.items[k].icon:set_image(style.layout_icon[l] or style.layout_icon.unknown)
 					end
-				end
 
-				-- update position of any visible submenu
-				if submenu.wibox.visible then submenu:show() end
+					-- set "checked" icon if tag active for given client
+					-- otherwise set empty icon
+					if c then
+						if submenu.items[k].right_icon then
+							submenu.items[k].right_icon:set_image(check_icon)
+						end
+					end
+
+					-- update position of any visible submenu
+					if submenu.wibox.visible then submenu:show() end
+				end
 			end
 		end
 	end

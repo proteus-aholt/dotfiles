@@ -9,3 +9,6 @@ require(rc)
 -- green network is nice
 -- orange volume is also nice
 -- orange network is the same
+--
+-- Startup Programs
+awful.util.spawn_with_shell("~/.config/scale_display.sh")

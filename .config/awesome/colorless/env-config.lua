@@ -9,6 +9,7 @@ local wibox = require("wibox")
 local naughty = require("naughty")
 
 local redflat = require("redflat")
+local unpack = table.unpack
 
 -- Initialize tables and vars for module
 -----------------------------------------------------------------------------------------------------------------------
@@ -23,7 +24,7 @@ function env:init(args)
 	local theme = args.theme or "colorless"
 
 	-- environment vars
-	self.terminal = args.terminal or "kitty"
+	self.terminal = args.terminal or "konsole"
 	self.mod = args.mod or "Mod4"
 	self.fm = args.fm or "thunar"
 	self.home = os.getenv("HOME")

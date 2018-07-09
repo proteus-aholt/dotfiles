@@ -34,18 +34,23 @@ function menu:init(args)
 	-- and user only icon theme. See colored configs for more details.
 
 	-- At worst, you can give up all applications widgets (appmenu, applauncher, appswitcher, qlaunch) in your config
+	--local logfile = io.open("/home/aholt/awesome-menu.log", "w")
 	local appmenu = redflat.service.dfparser.menu({ icons = icon_style, wm_name = "awesome" })
-
+	--logfile:write("Menu Size: " .. tostring(#appmenu) .. "\n")
+	--logfile:close()
+        --if appmenu == nil then
+	--	naughty.notify({ text = "appmenu is nil" })
+	--end
 	-- Main menu
 	------------------------------------------------------------
 	self.mainmenu = redflat.menu({ theme = theme,
 		items = {
 			{ "Applications",  appmenu,      },
 			{ "Terminal",      env.terminal, },
-			separator,
-			{ "Test Item 0", function() naughty.notify({ text = "Test menu 0" }) end,           },
-			{ "Test Item 1", function() naughty.notify({ text = "Test menu 1" }) end, key = "i" },
-			{ "Test Item 2", function() naughty.notify({ text = "Test menu 2" }) end, key = "m" },
+			--separator,
+			--{ "Test Item 0", function() naughty.notify({ text = "Test menu 0" }) end,           },
+			--{ "Test Item 1", function() naughty.notify({ text = "Test menu 1" }) end, key = "i" },
+			--{ "Test Item 2", function() naughty.notify({ text = "Test menu 2" }) end, key = "m" },
 			separator,
 			{ "Restart", awesome.restart, },
 			{ "Exit",    awesome.quit, },

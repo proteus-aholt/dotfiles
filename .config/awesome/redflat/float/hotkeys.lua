@@ -18,7 +18,7 @@ local timer = require("gears.timer")
 local redflat = require("redflat")
 local redutil = require("redflat.util")
 local separator = require("redflat.gauge.separator")
-
+local unpack = table.unpack
 
 -- Initialize tables for module
 -----------------------------------------------------------------------------------------------------------------------
