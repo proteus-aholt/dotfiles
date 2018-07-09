@@ -11,4 +11,4 @@ require(rc)
 -- orange network is the same
 --
 -- Startup Programs
-awful.util.spawn_with_shell("~/.config/scale_display.sh")
+-- awful.util.spawn_with_shell("~/.config/scale_display.sh")
