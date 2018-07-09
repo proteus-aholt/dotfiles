@@ -49,3 +49,10 @@ if [ -d ~/.config/sxhkd ]; then
 fi
 
 ln -sf $DIR/.config/sxhkd ~/.config/sxhkd
+
+if [ -f ~/.config/scale_display.sh ]; then
+	rm -rf ~/.config/scale_display.sh.old
+	mv ~/.config/scale_display.sh ~/.config/scale_display.sh.old
+fi
+
+ln -sf $DIR/.config/scale_display.sh ~/.config/scale_display.sh

@@ -1,3 +1,6 @@
+
+local awful = require("awful")
+
 -- local rc = "rc-red"
 -- local rc = "rc-blue"
 -- local rc = "rc-orange"
@@ -11,4 +14,4 @@ require(rc)
 -- orange network is the same
 --
 -- Startup Programs
--- awful.util.spawn_with_shell("~/.config/scale_display.sh")
+awful.util.spawn_with_shell("~/.config/scale_display.sh")
